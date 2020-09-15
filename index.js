@@ -12,7 +12,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   //server static content
   //npm run build
-  app.use(express.static(path.join(__dirname, "./client/build")));
+  app.use(express.static(path.join(__dirname, "/dist/client/build")));
 }
 
 // routes
@@ -137,7 +137,7 @@ app.get("/search", async(req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/dist/client/build/index.html"));
 });
 
 app.listen(PORT, () => {
