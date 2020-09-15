@@ -40,6 +40,8 @@ const RestaurantsList = () => {
   const getRestaurants = async () => {
     try {
       const res = await fetch("/restaurants");
+      console.log("result is:");
+      console.log(await res.text());
       const restaurantsArray = await res.json();
       setRestaurants(restaurantsArray.data.restaurants);
     }
