@@ -8,12 +8,16 @@ const PORT = process.env.PORT || 5000;
 // middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client/build")));
-// if (process.env.NODE_ENV === "production") {
-//   //server static content
-//   //npm run build
-//   app.use(express.static(path.join(__dirname, "client/build")));
-// }
+
+if (process.env.NODE_ENV === "production") {
+  //server static content
+  //npm run build
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  app.get('*', (request, response) => {
+    response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // routes
 // create a table 
@@ -134,10 +138,6 @@ app.get("/search", async(req, res) => {
   catch (err) {
     console.error(err.message);
   }
-});
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, () => {
