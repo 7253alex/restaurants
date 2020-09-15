@@ -9,9 +9,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "client-install": "npm install --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client npm install && npm run build "
   },
   "author": "",
