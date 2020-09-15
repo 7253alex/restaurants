@@ -41,9 +41,9 @@ app.post("/restaurants", async (req, res) => {
 // get all restaurants
 app.get("/restaurants", async (req, res) => {
   try {
+    console.log("in fetch restaurants");
     // get all data from restaurants table + average rating and the number of reviews for each restaurant
     const restaurantRatingData = await pool.query("select * from restaurants left join (select restaurant_id, count(*), trunc(avg(rating), 1) as avg_rating from reviews group by restaurant_id) reviews on restaurants.id = reviews.restaurant_id;");
-    console.log("in fetch restaurants");
     console.log(JSON.stringify(restaurantRatingData));
     res.status(200).json({
       status: "success",
