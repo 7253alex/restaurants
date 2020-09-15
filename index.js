@@ -136,6 +136,10 @@ app.get("/search", async(req, res) => {
   }
 });
 
+app.get('/', function(req, res){
+  res.redirect('/restaurants');
+});
+
 app.listen(PORT, () => {
   console.log(`server is up on port ${PORT}`)
 });
