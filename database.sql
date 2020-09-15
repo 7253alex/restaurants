@@ -12,11 +12,3 @@ CREATE TABLE reviews (
   review TEXT NOT NULL, 
   rating INT NOT NULL CHECK(rating >=1 and rating <=5)
   );
-
-DO LANGUAGE plpgsql $$
-    BEGIN
-        IF (SELECT COUNT(*) from test > 1 THEN 
-            return query select * from restaurants;
-        END IF;
-    END;
-$$;
