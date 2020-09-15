@@ -13,12 +13,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
+  app.get('*', (request, response) => {
+    response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
-
-app.get('*', (request, response) => {
-  console.log(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
 
 // routes
 // create a table 
