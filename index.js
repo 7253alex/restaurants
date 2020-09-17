@@ -131,7 +131,7 @@ app.get("/search", async(req, res) => {
   try {
     const {name} = req.query;
     // ILIKE = not case sensitive version of LIKE
-    const restaurant = await pool.query("SELECT * FROM restaurants WHERE name ILIKE $1", [`%${name}%`]);
+    const restaurant = await pool.query("SELECT * FROM (select * from restaurants left join (select restaurant_id, count(*), trunc(avg(rating), 1) as avg_rating from reviews group by restaurant_id) reviews on restaurants.id = reviews.restaurant_id) as reset WHERE reset.name ILIKE $1;", [`%${name}%`]);
     res.json(restaurant.rows);
   } 
   catch (err) {
