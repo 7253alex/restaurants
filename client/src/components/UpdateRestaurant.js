@@ -52,7 +52,7 @@ const UpdateRestaurant = ({restaurant}) => {
             </div>
             <div className="modal-body">
               <div className="form-group">
-              <label className="font-weight-light text-dark">Name</label>
+              <label className="text-dark">Name</label>
                 <input 
                   value={name} 
                   onChange={e => setName(e.target.value)} 
@@ -62,7 +62,7 @@ const UpdateRestaurant = ({restaurant}) => {
                 />
               </div>
               <div className="form-group">
-                <label className="font-weight-light text-dark">Location</label>
+                <label className="text-dark">Location</label>
                   <input 
                     value={location} 
                     onChange={e => setLocation(e.target.value)} 
@@ -71,7 +71,7 @@ const UpdateRestaurant = ({restaurant}) => {
                   />
               </div>
               <div className="form-group">
-              <label className="font-weight-light text-dark">Price Range ($)</label>
+              <label className="text-dark">Price Range ($)</label>
               <div>
                 <select 
                   style={{width: '200px'}}
