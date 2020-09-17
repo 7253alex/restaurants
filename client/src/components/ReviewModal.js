@@ -49,7 +49,7 @@ const ReviewModal = ({restaurant}) => {
           rating: rating
         })
       });
-      window.location = `/restaurants/${restaurant.id}/AddReview`;
+      window.location = "/";
     }
     catch (err) {
       console.error(err.message)
