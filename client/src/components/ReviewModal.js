@@ -112,7 +112,7 @@ const ReviewModal = ({restaurant}) => {
                     <form action="">
                       <div className="form-row">
                         <div className="form-group col-8">
-                          <label>Name</label>
+                          <label className="text-dark">Name</label>
                             <input 
                               value={name}
                               onChange={e => setName(e.target.value)}
@@ -122,7 +122,7 @@ const ReviewModal = ({restaurant}) => {
                             />
                         </div>
                         <div className="form-group col-4">
-                          <label>Rating</label>
+                          <label className="text-dark">Rating</label>
                           <select 
                             value={rating}
                             onChange={e => setRating(e.target.value)}
@@ -138,7 +138,7 @@ const ReviewModal = ({restaurant}) => {
                         </div>
                       </div>
                       <div className="form-group">
-                        <label>Review</label>
+                        <label className="text-dark">Review</label>
                         <textarea 
                           value={reviewText}
                           onChange={e => setReviewText(e.target.value)}
